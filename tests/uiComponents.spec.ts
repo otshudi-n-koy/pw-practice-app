@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test"
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4201/')
+    await page.goto('http://localhost:4200/')
 })
 
 test.describe('Form Layouts page @block', () => {
@@ -38,7 +38,8 @@ test.describe('Form Layouts page @block', () => {
         //await usingTheGridForm.getByLabel('Option 1').check({force: true})
         await usingTheGridForm.getByRole('radio', { name: "Option 1" }).check({ force: true })
         const radioStatus = await usingTheGridForm.getByRole('radio', { name: "Option 1" }).isChecked()
-        await expect(usingTheGridForm).toHaveScreenshot({ maxDiffPixels: 1500 })
+        //await expect(usingTheGridForm).toHaveScreenshot({ maxDiffPixels: 1500 })
+        await expect(usingTheGridForm).toHaveScreenshot()
         // expect(radioStatus).toBeTruthy()
         // await expect(usingTheGridForm.getByRole('radio', { name: "Option 1" })).toBeChecked()
 
